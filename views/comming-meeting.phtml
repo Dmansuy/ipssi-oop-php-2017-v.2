@@ -1,0 +1,19 @@
+<?php /* @var $meetings \Conferences\Collection\MeetingCollection */ ?>
+<ul>
+    <h1>Meetings</h1>
+    <?php
+    date_default_timezone_set('FR');
+    // 2001/03/10 (le format DATE de MySQL)
+    	foreach ($meetings as $meeting) : /* @var $meetings \Conferences\Entity\Meeting */ 
+    		if (!is_null($meeting)) {?>
+    		 	<li><a href="meeting/<?= urlencode($meeting->getTitle()) ?>"><?= $meeting->getTitle() ?></a></li><?php
+    		 }
+    		 else
+    		 {
+    		 	echo "pas de meeting";
+    		 }
+    		 ?>
+    	<?php endforeach>
+     }
+     ?>
+</ul>
